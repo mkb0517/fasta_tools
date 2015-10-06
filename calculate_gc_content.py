@@ -3,6 +3,12 @@
 # Command line script to calculate base frequency from a .fasta file
 
 import sys
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('filename')
+args = parser.parse_args()
+filename = args.filename
 
 a_count = 0
 c_count = 0
@@ -10,7 +16,7 @@ g_count = 0
 t_count = 0
 total   = 0.0
 
-with open(sys.argv[1], 'r') as fasta:
+with open(filename, 'r') as fasta:
     for line in fasta:
         if line.startswith(">"):
             # Header line, skip it
@@ -26,8 +32,8 @@ c_perc = (c_count/total)*100
 g_perc = (g_count/total)*100
 t_perc = (t_count/total)*100
 
-print("Base counts for file %s:" % sys.argv[1])
-print("A: %d (%d%s)" % (a_count, a_perc, '%'))
-print("C: %d (%d%s)" % (c_count, c_perc, '%'))
-print("G: %d (%d%s)" % (g_count, g_perc, '%'))
-print("T: %d (%d%s)" % (t_count, t_perc, '%'))
+print("Base counts for file %s:" % filename)
+print("A: %d (%f%s)" % (a_count, a_perc, '%'))
+print("C: %d (%f%s)" % (c_count, c_perc, '%'))
+print("G: %d (%f%s)" % (g_count, g_perc, '%'))
+print("T: %d (%f%s)" % (t_count, t_perc, '%'))
