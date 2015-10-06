@@ -31,9 +31,11 @@ a_perc = (a_count/total)*100
 c_perc = (c_count/total)*100
 g_perc = (g_count/total)*100
 t_perc = (t_count/total)*100
+gc_cont = ((g_count+c_count)/total)*100
 
 print("Base counts for file %s:" % filename)
 print("A: %d (%f%s)" % (a_count, a_perc, '%'))
 print("C: %d (%f%s)" % (c_count, c_perc, '%'))
 print("G: %d (%f%s)" % (g_count, g_perc, '%'))
 print("T: %d (%f%s)" % (t_count, t_perc, '%'))
+print("GC content: %f%s" % (gc_cont, '%'))
