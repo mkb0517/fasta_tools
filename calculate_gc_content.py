@@ -21,7 +21,7 @@ with open(filename, 'r') as fasta:
         if line.startswith(">"):
             # Header line, skip it
             continue
-        total += len(line.strip())
+        total += len(line.strip()) #count all the elements of the sequence including N elements
         a_count += line.count('A',0)
         c_count += line.count('C',0)
         g_count += line.count('G',0)
